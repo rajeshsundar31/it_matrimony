@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_matrimony/presentation/landing_screen.dart';
+import 'package:it_matrimony/presentation/landing_page/landing_screen.dart';
 import 'package:it_matrimony/presentation/login/login_view.dart';
 
 class CommonRoutes {
