@@ -6,7 +6,7 @@ import 'package:it_matrimony/presentation/landing_page/landing_screen.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Future.delayed(const Duration(seconds: 10));
+  await Future.delayed(const Duration(seconds: 1));
   FlutterNativeSplash.remove();
 
 

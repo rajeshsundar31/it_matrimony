@@ -15,6 +15,8 @@ class _ContactInfoState extends State<ContactInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
+      bottom: false,
       child: Scaffold(
         backgroundColor: AppColor.primary,
         body: _buildContainer(context),
@@ -26,7 +28,7 @@ class _ContactInfoState extends State<ContactInfo> {
     return Container(
       decoration: BoxDecoration(
         color: AppColor.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(90)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(120)),
         boxShadow: [
           BoxShadow(
             offset: Offset(5.0, 5.0),

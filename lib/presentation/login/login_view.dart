@@ -19,7 +19,10 @@ class _LoginViewState extends State<LoginView> {
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Scaffold(
       body: _getBodyContent(context),
     ));
   }

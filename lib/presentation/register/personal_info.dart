@@ -17,6 +17,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
+      bottom: false,
       child: Scaffold(
         backgroundColor: AppColor.primary,
         body: _buildContainer(context),
@@ -28,7 +30,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
     return Container(
       decoration: BoxDecoration(
         color: AppColor.white,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(90)),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(120)),
         boxShadow: [
           BoxShadow(
             offset: Offset(5.0, 5.0),
@@ -47,7 +49,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 8.0, top: 24.0),
+          padding: const EdgeInsets.only(left: 8.0, top: 42.0),
           child: Center(
             child: Text(
               'Personal Details',

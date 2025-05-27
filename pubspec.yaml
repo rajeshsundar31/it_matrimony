@@ -91,10 +91,21 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
 flutter_native_splash:
+  #backgroundColor
   color: "#42a5f5"
-  image: "assets/images/rings.png"
+  # color_dark: "#121212"
+  #splashimage
+  image: "assets/images/cplsrings.jpg"
+  #andoidpermission
   android: true
+  #iospermission
   ios: true
+  #forwebpermission
   web: false
+  # Enable full screen splash
+  fullscreen: true
+
+  android_gravity: fill    # Other options: center, center_crop, top, bottom
+  ios_content_mode: scaleToFill 
 
   
