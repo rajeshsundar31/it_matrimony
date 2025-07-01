@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:it_matrimony/presentation/dashboard/dashboard.dart';
+import 'package:it_matrimony/presentation/inbox/inbox.dart';
 import 'package:it_matrimony/presentation/landing_page/landing_screen.dart';
 import 'package:it_matrimony/presentation/login/login_view.dart';
 import 'package:it_matrimony/presentation/register/contact_info.dart';
+import 'package:it_matrimony/presentation/register/education_info.dart';
 import 'package:it_matrimony/presentation/register/personal_info.dart';
 
 class CommonRoutes {
@@ -12,6 +14,8 @@ class CommonRoutes {
   static const String dashboard = "/dashboard";
   static const String personalInfo = "/personal-info";
   static const String contactInfo = "/contact-info";
+  static const String educationInfo = "/education";
+  static const String inbox = "/inbox";
 
 
   Route<dynamic> generatedRoutes(RouteSettings setting) {
@@ -24,8 +28,12 @@ class CommonRoutes {
         return MaterialPageRoute(builder: (context) => const PersonalInfo());
       case contactInfo:
         return MaterialPageRoute(builder: (context) => const ContactInfo());
+      case educationInfo:
+        return MaterialPageRoute(builder: (context) => const EducationInfo());
       case dashboard:
         return MaterialPageRoute(builder: (context) => const DashboardScreen());
+      case inbox:
+        return MaterialPageRoute(builder: (context) => const ChatBox());
       default:
         return MaterialPageRoute(builder: (context) => Scaffold(
           body: Center(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:get/get.dart';
 import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/presentation/landing_page/landing_screen.dart';
 void main() async{
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
     // return MultiProvider(
     //   providers: providerList,
     //   child: 
-      return GetMaterialApp(
+      return MaterialApp(
         debugShowCheckedModeBanner: false, 
         home: const LandingScreen(),
         onGenerateRoute: CommonRoutes().generatedRoutes,

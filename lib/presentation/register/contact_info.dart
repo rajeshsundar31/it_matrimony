@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:it_matrimony/component/custom_button.dart';
 import 'package:it_matrimony/core/constant/app_strings.dart';
 import 'package:it_matrimony/core/constant/colors.dart';
+import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/core/utils/app_size.dart';
 
 class ContactInfo extends StatefulWidget {
@@ -15,7 +16,7 @@ class _ContactInfoState extends State<ContactInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      top: false,
+      // top: false,
       bottom: false,
       child: Scaffold(
         backgroundColor: AppColor.primary,
@@ -231,8 +232,7 @@ class _ContactInfoState extends State<ContactInfo> {
           text: AppStrings.btnContue,
           color: AppColor.gold,
           onPress: () {
-          // Navigator.pushNamed(context, CommonRoutes.contactInfo);
-            
+          Navigator.pushNamed(context, CommonRoutes.educationInfo);
           },
         ),
       )

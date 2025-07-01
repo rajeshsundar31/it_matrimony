@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:it_matrimony/core/constant/app_strings.dart';
 import 'package:it_matrimony/core/constant/colors.dart';
+import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/core/utils/assets_utils.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -17,6 +18,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Scaffold(
         appBar: _buildAppbar(context),
         drawer: _buildDrawer(context),
+        body: Column(
+          children: [
+            _buildBody(context),
+            _buildBody(context),
+            _buildBody(context),
+            _buildBody(context),
+            _buildBody(context),
+          ],
+        ),
       ),
     );
   }
@@ -79,8 +89,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return AppBar(
       title: Text(AppStrings.matrimony),
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.mark_as_unread_sharp))
+        IconButton(onPressed: () {
+          Navigator.pushNamed(context, CommonRoutes.inbox);
+        }, icon: Icon(Icons.mark_as_unread_sharp))
       ],
     );
+  }
+
+
+  Widget _buildBody(BuildContext context){
+    return Card(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              leading: Image.asset(AssetsUtils.dpImage),
+              title: Text('Leena'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                TextButton(
+                  child: const Text('View Profile'),
+                  onPressed: () {
+                    /* ... */
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
   }
 }

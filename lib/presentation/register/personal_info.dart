@@ -17,7 +17,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      top: false,
+      // top: false,
       bottom: false,
       child: Scaffold(
         backgroundColor: AppColor.primary,
