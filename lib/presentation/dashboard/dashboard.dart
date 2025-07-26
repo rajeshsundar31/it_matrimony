@@ -14,19 +14,17 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: _buildAppbar(context),
-        drawer: _buildDrawer(context),
-        body: Column(
-          children: [
-            _buildBody(context),
-            _buildBody(context),
-            _buildBody(context),
-            _buildBody(context),
-            _buildBody(context),
-          ],
-        ),
+    return Scaffold(
+      appBar: _buildAppbar(context),
+      drawer: _buildDrawer(context),
+      body: Column(
+        children: [
+          _buildBody(context),
+          _buildBody(context),
+          _buildBody(context),
+          _buildBody(context),
+          _buildBody(context),
+        ],
       ),
     );
   }

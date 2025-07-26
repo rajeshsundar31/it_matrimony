@@ -12,15 +12,14 @@ class ChatBox extends StatefulWidget {
 class _ChatBoxState extends State<ChatBox> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppStrings.inboxHeading),
-          leading: IconButton(onPressed: (){
-            Navigator.pushNamed(context, CommonRoutes.dashboard);
-
-          }, icon: Icon(Icons.arrow_back_ios)),
-        ),
-      ));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppStrings.inboxHeading),
+        leading: IconButton(onPressed: (){
+          Navigator.pushNamed(context, CommonRoutes.dashboard);
+    
+        }, icon: Icon(Icons.arrow_back_ios)),
+      ),
+    );
   }
 }
