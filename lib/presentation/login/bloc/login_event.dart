@@ -1,3 +1,13 @@
-abstract class OnPressEvent {}
+abstract class AuthEvent {}
 
-class NavigationEvent extends OnPressEvent {}
+class EmailChange extends AuthEvent {
+  final String email;
+  EmailChange(this.email);
+}
+
+class PasswordChange extends AuthEvent {
+  final String password;
+  PasswordChange(this.password);
+}
+
+class FormSubmitted extends AuthEvent {}

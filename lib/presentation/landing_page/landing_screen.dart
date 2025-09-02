@@ -10,13 +10,9 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Scaffold(
-        body: _getbody(context),
-          ),
-    );
+    return Scaffold(
+      body: _getbody(context),
+        );
   }
 
   Widget _getbody(BuildContext context){

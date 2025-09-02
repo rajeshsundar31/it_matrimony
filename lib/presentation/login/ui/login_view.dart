@@ -1,11 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_matrimony/component/custom_button.dart';
 import 'package:it_matrimony/core/constant/app_strings.dart';
 import 'package:it_matrimony/core/constant/colors.dart';
 import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/core/utils/app_size.dart';
 import 'package:it_matrimony/core/utils/assets_utils.dart';
+import 'package:it_matrimony/presentation/login/bloc/login_bloc.dart';
+import 'package:it_matrimony/presentation/login/bloc/login_event.dart';
+import 'package:it_matrimony/presentation/login/bloc/login_state.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -19,12 +23,14 @@ class _LoginViewState extends State<LoginView> {
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Scaffold(
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (BuildContext context, AuthState state) { 
+        return Scaffold(
       body: _getBodyContent(context),
-    ));
+          );
+       },
+      
+    );
   }
 
   Widget _getBodyContent(BuildContext context) {
