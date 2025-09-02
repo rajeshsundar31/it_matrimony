@@ -8,7 +8,6 @@ import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/core/utils/app_size.dart';
 import 'package:it_matrimony/core/utils/assets_utils.dart';
 import 'package:it_matrimony/presentation/login/bloc/login_bloc.dart';
-import 'package:it_matrimony/presentation/login/bloc/login_event.dart';
 import 'package:it_matrimony/presentation/login/bloc/login_state.dart';
 
 class LoginView extends StatefulWidget {
