@@ -8,6 +8,7 @@ import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/core/utils/app_size.dart';
 import 'package:it_matrimony/core/utils/assets_utils.dart';
 import 'package:it_matrimony/presentation/login/bloc/login_bloc.dart';
+import 'package:it_matrimony/presentation/login/bloc/login_event.dart';
 import 'package:it_matrimony/presentation/login/bloc/login_state.dart';
 
 class LoginView extends StatefulWidget {
@@ -19,16 +20,28 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   String? email;
+  String? password;
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
-      builder: (BuildContext context, AuthState state) { 
-        return Scaffold(
-      body: _getBodyContent(context),
-          );
-       },
-      
+    return BlocListener<LoginBloc, LoginState>(
+      listener: (BuildContext context, LoginState state) {
+        if (state.isSuccess) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Login Success!')));
+          Navigator.pushNamed(context, CommonRoutes.dashboard);
+        } else if (state.isFailure) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Login Failure!')));
+        }
+      },
+      child: BlocBuilder<LoginBloc, LoginState>(
+        builder: (context, state) {
+          return Scaffold(body: _getBodyContent(context));
+        },
+      ),
     );
   }
 
@@ -40,11 +53,11 @@ class _LoginViewState extends State<LoginView> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _getLoginImage(context),
-            SizedBox(height: displayHeight(context)/10),
+            SizedBox(height: displayHeight(context) / 10),
             _getEmail(context),
             _getPassword(context),
             _buildButton(context),
-            _buildCreateUser(context)
+            _buildCreateUser(context),
           ],
         ),
       ),
@@ -55,29 +68,29 @@ class _LoginViewState extends State<LoginView> {
     return Stack(
       children: [
         Container(
-        height: displayHeight(context)/3,
-        decoration: BoxDecoration(
-          color: AppColor.primary,
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(160)),
+          height: displayHeight(context) / 3,
+          decoration: BoxDecoration(
+            color: AppColor.primary,
+            borderRadius: BorderRadius.only(bottomRight: Radius.circular(160)),
+          ),
         ),
-      ),
         Padding(
           padding: EdgeInsets.only(top: 70, left: 150),
           child: ClipOval(
-                child: Image.asset(
-          AssetsUtils.rings,
-          color: AppColor.white,
-          height: displayHeight(context) / 7,
-          width: displayHeight(context) / 7, 
-          fit: BoxFit.cover,
-                ),
+            child: Image.asset(
+              AssetsUtils.rings,
+              color: AppColor.white,
+              height: displayHeight(context) / 7,
+              width: displayHeight(context) / 7,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ],
     );
   }
 
-   Flexible _getEmail(BuildContext context) {
+  Flexible _getEmail(BuildContext context) {
     return Flexible(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -90,19 +103,23 @@ class _LoginViewState extends State<LoginView> {
               return null;
             }
           },
+          onChanged: (value) {
+            context.read<LoginBloc>().add(EmailChanged(value));
+          },
           keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-              hintText: "Enter Your Valid Mail",
-              labelText: "Email"),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            hintText: "Enter Your Valid Mail",
+            labelText: "Email",
+          ),
         ),
       ),
     );
   }
 
-   Flexible _getPassword(BuildContext context) {
+  Flexible _getPassword(BuildContext context) {
     return Flexible(
       child: Padding(
         padding: const EdgeInsets.only(top: 24.0, left: 8, right: 8),
@@ -111,11 +128,12 @@ class _LoginViewState extends State<LoginView> {
           keyboardType: TextInputType.visiblePassword,
           obscureText: true,
           decoration: const InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-              hintText: "Enter Strong Password",
-              labelText: "Password"),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+            hintText: "Enter Strong Password",
+            labelText: "Password",
+          ),
           validator: (value) {
             if (value == null || value.length < 4) {
               return 'Password cannot be Empty';
@@ -125,43 +143,55 @@ class _LoginViewState extends State<LoginView> {
               return null;
             }
           },
+          onChanged: (value) {
+            context.read<LoginBloc>().add(PasswordChanged(value));
+          },
         ),
       ),
     );
   }
 
-  Flexible _buildButton( BuildContext context){
+  Flexible _buildButton(BuildContext context) {
     return Flexible(
       child: Padding(
         padding: const EdgeInsets.only(top: 24.0),
         child: CustomButton(
-          width: displayWidth(context)/2,
+          width: displayWidth(context) / 2,
           text: AppStrings.login,
           color: AppColor.gold,
           onPress: () {
-          Navigator.pushNamed(context, CommonRoutes.dashboard);            
+            if (_formkey.currentState!.validate()) {
+              context.read<LoginBloc>().add(LoginSubmitted());
+            }
           },
         ),
-      )
-      );
+      ),
+    );
   }
 
-  Widget _buildCreateUser(BuildContext context){
+  Widget _buildCreateUser(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10, top: 15), 
-      child: RichText(text: TextSpan(
-        children: [
-          TextSpan(text: 'Don\'t have an account?', style: TextStyle(color: AppColor.black, fontSize: 16)),
-          WidgetSpan(child: SizedBox(width: 10,)),
-          TextSpan(text: 'Sign-up', 
-          style: TextStyle(color: AppColor.primary),
-          recognizer: TapGestureRecognizer()..onTap =  (){
-            Navigator.pushNamed(context, CommonRoutes.personalInfo);
-          },
-          )
-        ]
-      )
+      padding: EdgeInsets.only(left: 10, top: 15),
+      child: RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: 'Don\'t have an account?',
+              style: TextStyle(color: AppColor.black, fontSize: 16),
+            ),
+            WidgetSpan(child: SizedBox(width: 10)),
+            TextSpan(
+              text: 'Sign-up',
+              style: TextStyle(color: AppColor.primary),
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.pushNamed(context, CommonRoutes.personalInfo);
+                    },
+            ),
+          ],
+        ),
       ),
-      );
+    );
   }
 }

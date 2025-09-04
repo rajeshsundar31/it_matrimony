@@ -25,7 +25,7 @@ class CommonRoutes {
       case initialRoute:
         return MaterialPageRoute(builder: (context) => const LandingScreen());
       case logIn:
-        return MaterialPageRoute(builder: (context) => BlocProvider(create: (_)=> AuthBloc(),
+        return MaterialPageRoute(builder: (context) => BlocProvider(create: (_)=> LoginBloc(),
         child: const LoginView()));
       case personalInfo:
         return MaterialPageRoute(builder: (context) => const PersonalInfo());

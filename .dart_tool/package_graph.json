@@ -9,6 +9,7 @@
       "dependencies": [
         "cupertino_icons",
         "dio",
+        "equatable",
         "flutter",
         "flutter_bloc",
         "flutter_native_splash",
@@ -53,6 +54,14 @@
         "test_api",
         "vector_math",
         "vm_service"
+      ]
+    },
+    {
+      "name": "equatable",
+      "version": "2.0.7",
+      "dependencies": [
+        "collection",
+        "meta"
       ]
     },
     {

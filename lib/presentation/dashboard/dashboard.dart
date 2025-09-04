@@ -61,21 +61,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
               leading: const Icon(Icons.home),
               title: Text('Home'),
               onTap: () {
-                print('Home');
+                // print('Home');
               },
             ),
             ListTile(
               leading: const Icon(Icons.group),
               title: Text('Matches'),
               onTap: () {
-                print('Matches');
+                // print('Matches');
               },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
               title: Text('Setting'),
               onTap: () {
-                print('Setting');
+                // print('Setting');
               },
             )
         ],

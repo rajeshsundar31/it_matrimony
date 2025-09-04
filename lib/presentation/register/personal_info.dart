@@ -239,7 +239,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   Flexible _getDob(BuildContext context) {
     DateTime date = DateTime(2016, 10, 26);
 
-    void _showDatePicker(BuildContext context) {
+    void showDatePicker(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
       builder: (BuildContext context) => Container(
@@ -266,7 +266,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GestureDetector(
-          onTap: () => _showDatePicker(context),
+          onTap: () => showDatePicker(context),
           child: InputDecorator(
             decoration: InputDecoration(
               labelText: 'Date of Birth',
