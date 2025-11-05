@@ -8,13 +8,16 @@
       "version": "1.0.0+1",
       "dependencies": [
         "cupertino_icons",
+        "dartz",
         "dio",
         "equatable",
         "flutter",
         "flutter_bloc",
         "flutter_native_splash",
+        "http",
         "provider",
-        "shared_preferences"
+        "shared_preferences",
+        "slide_to_act"
       ],
       "devDependencies": [
         "flutter_lints",
@@ -54,6 +57,28 @@
         "test_api",
         "vector_math",
         "vm_service"
+      ]
+    },
+    {
+      "name": "dartz",
+      "version": "0.10.1",
+      "dependencies": []
+    },
+    {
+      "name": "slide_to_act",
+      "version": "2.0.2",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "http",
+      "version": "1.5.0",
+      "dependencies": [
+        "async",
+        "http_parser",
+        "meta",
+        "web"
       ]
     },
     {
@@ -305,6 +330,21 @@
       ]
     },
     {
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
       "name": "bloc",
       "version": "9.0.0",
       "dependencies": [
@@ -319,16 +359,6 @@
         "http_parser",
         "meta",
         "web"
-      ]
-    },
-    {
-      "name": "http_parser",
-      "version": "4.1.2",
-      "dependencies": [
-        "collection",
-        "source_span",
-        "string_scanner",
-        "typed_data"
       ]
     },
     {
@@ -465,11 +495,6 @@
     {
       "name": "sky_engine",
       "version": "0.0.0",
-      "dependencies": []
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
       "dependencies": []
     },
     {

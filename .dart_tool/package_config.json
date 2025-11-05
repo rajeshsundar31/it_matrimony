@@ -74,6 +74,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "dartz",
+      "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/dartz-0.10.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dio",
       "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/dio-5.8.0+1",
       "packageUri": "lib/",
@@ -318,6 +324,12 @@
       "rootUri": "file:///Users/rajeshsundar/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.7"
+    },
+    {
+      "name": "slide_to_act",
+      "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/slide_to_act-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "source_span",

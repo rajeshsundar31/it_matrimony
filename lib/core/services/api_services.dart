@@ -2,10 +2,9 @@ import 'package:http/http.dart' as http;
 import 'package:it_matrimony/core/constant/api_base.dart';
 
 class ApiServices {
-  static final httpClient = http.Client(); 
-  static final ApiString = ApiBaseUrl();
+  static final httpClient = http.Client();
 
-  Future<dynamic> getResponse(String endpoint, String? id) async{
+  Future<dynamic> getResponse(String endpoint) async {
     var url = Uri.parse(ApiBaseUrl.baseUrl + endpoint);
 
     const header = {
@@ -17,7 +16,5 @@ class ApiServices {
     if (respone.statusCode == 200){
       return respone;
     }
-    
-
   }
 }

@@ -19,10 +19,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
       drawer: _buildDrawer(context),
       body: Column(
         children: [
-          _buildBody(context),
-          _buildBody(context),
-          _buildBody(context),
-          _buildBody(context),
+          Row(
+            children: [
+              _buildCardWidget(context),
+              _buildCardWidget(context),
+          
+            ],
+          ),
           _buildBody(context),
         ],
       ),
@@ -86,10 +89,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   AppBar _buildAppbar(BuildContext context){
     return AppBar(
       title: Text(AppStrings.matrimony),
+      actionsPadding: EdgeInsets.all(8),
       actions: [
         IconButton(onPressed: () {
           Navigator.pushNamed(context, CommonRoutes.inbox);
-        }, icon: Icon(Icons.mark_as_unread_sharp))
+        }, icon: Icon(Icons.mark_as_unread_sharp)),
+        _buildProfileIcon(context),
+
       ],
     );
   }
@@ -120,4 +126,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       );
   }
+
+ Widget _buildCardWidget(BuildContext context) {
+  return Card(
+    color: AppColor.gold,
+    child: SizedBox(
+      width: 190,
+      height: 200,
+    ),
+  );
+ }
+
+ Widget _buildProfileIcon(BuildContext context) {
+  return SizedBox(
+    height: 35,
+    width: 35,
+    child: Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        Container(
+          height: 30,
+          width: 30,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(image: AssetImage(AssetsUtils.dpImage),fit: BoxFit.cover)
+          ),
+        ),
+        Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColor.green
+          ),
+        )
+      ],
+
+    ),
+  );
+ }
 }
