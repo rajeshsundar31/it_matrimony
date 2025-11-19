@@ -19,7 +19,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       // Simulate authentication (replace with real logic)
       await Future.delayed(const Duration(seconds: 2));
-      if (state.email == 'test@example.com' && state.password == 'password123') {
+      if (state.email == 'test@example.com' && state.password == 'password@31') {
         emit(state.copyWith(isSubmitting: false, isSuccess: true));
       } else {
         emit(state.copyWith(isSubmitting: false, isFailure: true));
