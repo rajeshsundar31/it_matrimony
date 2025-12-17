@@ -1,3 +1,3 @@
 class ApiBaseUrl {
-  static final String baseUrl = "https://api.restful-api.dev/objects";
+  static const String baseUrl = "https://jsonplaceholder.typicode.com";
 }

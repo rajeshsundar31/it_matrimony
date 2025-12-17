@@ -16,12 +16,14 @@ class LandingScreen extends StatelessWidget {
   }
 
   Widget _getbody(BuildContext context){
-    return Column(
-      children: [
-        _landingPageImage(context),
-        SizedBox(height: displayHeight(context)/4),
-        _cntueButton(context),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _landingPageImage(context),
+          SizedBox(height: displayHeight(context)/4),
+          _cntueButton(context),
+        ],
+      ),
     );
   }
 
