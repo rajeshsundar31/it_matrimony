@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_matrimony/core/constant/app_strings.dart';
 import 'package:it_matrimony/core/constant/colors.dart';
 import 'package:it_matrimony/core/routes/routes.dart';
+import 'package:it_matrimony/core/utils/app_size.dart';
 import 'package:it_matrimony/core/utils/assets_utils.dart';
 import 'package:it_matrimony/presentation/dashboard/bloc/dashboard_bloc.dart';
 import 'package:it_matrimony/presentation/dashboard/bloc/dashboard_state.dart';
@@ -22,10 +23,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       drawer: _buildDrawer(context),
       body: Column(
         children: [
-          Row(children: [_buildCardWidget(context), _buildCardWidget(context)]),
+          _buildCardWidget(context),
           Expanded(child: _buildBody(context)),
         ],
       ),
+      floatingActionButton: _buildFloatingButton(context)
     );
   }
 
@@ -122,14 +124,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       );
       }
-      return Text("Loading Error");
+      return Text("Loading...");
     },
   );
 }
 
 
   Widget _buildCardWidget(BuildContext context) {
-    return Card(color: AppColor.gold, child: SizedBox(width: 190, height: 200));
+    return Card(
+      elevation: 60.0,
+      child: SizedBox(
+        height:  displayHeight(context) * 0.200,
+        width: displayWidth(context) * 2.4,
+        child: DecoratedBox(
+          decoration: BoxDecoration(  
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Rajesh", style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+              ),),
+              Icon(Icons.contactless, size: 40)
+            ],
+          ),
+          ),
+      ),);
   }
 
   Widget _buildProfileIcon(BuildContext context) {
@@ -162,5 +183,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
+  }
+
+  FloatingActionButton _buildFloatingButton(BuildContext context) {
+    return FloatingActionButton(
+        backgroundColor: AppColor.primary,
+        onPressed: (){}, child: Icon(Icons.add, color: AppColor.white,),);
   }
 }
