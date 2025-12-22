@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:it_matrimony/core/services/api_services.dart';
 import 'package:it_matrimony/presentation/inbox/model/inbox_model.dart';

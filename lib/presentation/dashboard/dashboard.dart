@@ -16,6 +16,8 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+
+  final String title = "Rajeshwaran Senthilkumar";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,23 +135,78 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildCardWidget(BuildContext context) {
     return Card(
       elevation: 60.0,
+      color: AppColor.cardcolor,
       child: SizedBox(
         height:  displayHeight(context) * 0.200,
         width: displayWidth(context) * 2.4,
-        child: DecoratedBox(
-          decoration: BoxDecoration(  
-          ),
-          child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Rajesh", style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
-              Icon(Icons.contactless, size: 40)
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0, top: 8.0),
+                child: Text("Savings Account", style: TextStyle(
+                  fontSize: 18,
+                  color: AppColor.white,
+                  fontWeight: FontWeight.w500
+                ),),
+              ),
             ],
           ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 70.0),
+                child: SizedBox(
+                  width: displayWidth(context) * 0.100,
+                  child: Image.asset(AssetsUtils.chip)),
+              ),
+               Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Icon(Icons.contactless_outlined, size: 40, color: AppColor.white,),
+              )
+            ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text("5324-1742-9213-5284", style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: AppColor.white
+                ),)
+              ),
+              Text("valid: 01/27", style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: AppColor.white
+              ),),
+            ],
+          ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Text(title, style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: AppColor.white
+                ),)
+              ),
+               Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Icon(Icons.join_right_rounded, size: 60, color: AppColor.white,),
+              )
+            ],
+          ),
+          ],
+        ),
       ),);
   }
 
@@ -158,7 +215,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       height: 35,
       width: 35,
       child: Stack(
-        // alignment: Alignment.bottomRight,
         children: [
           Container(
             height: 30,
@@ -188,6 +244,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   FloatingActionButton _buildFloatingButton(BuildContext context) {
     return FloatingActionButton(
         backgroundColor: AppColor.primary,
-        onPressed: (){}, child: Icon(Icons.add, color: AppColor.white,),);
+        onPressed: (){
+          Navigator.pushNamed(context, CommonRoutes.paymentInfo);
+        }, child: Icon(Icons.add, color: AppColor.white,),);
   }
 }

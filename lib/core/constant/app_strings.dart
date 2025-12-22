@@ -3,4 +3,5 @@ class AppStrings {
   static String login = "Login";
   static String matrimony = "Matrimony";
   static String inboxHeading = "Inbox";
+  static String paymentInfo = "Payment Info";
 }

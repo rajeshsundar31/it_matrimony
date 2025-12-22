@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:it_matrimony/core/routes/routes.dart';
 import 'package:it_matrimony/presentation/landing_page/landing_screen.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,15 +20,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // return MultiProvider(
+    // return 
+    // MultiProvider(
     //   providers: providerList,
-    //   child: 
+    //   child: MaterialApp(home: UserProfileDetails())
       return MaterialApp(
         debugShowCheckedModeBanner: false, 
         home: const LandingScreen(),
         onGenerateRoute: CommonRoutes().generatedRoutes,
         initialRoute: '/',
       );
-    // );
   }
 }

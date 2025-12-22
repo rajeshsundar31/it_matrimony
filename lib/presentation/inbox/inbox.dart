@@ -57,7 +57,7 @@ class _ChatBoxState extends State<ChatBox> {
           },
           );
         }
-        return Text("SomeThingwent Wrog");
+        return CircularProgressIndicator();
       },
     );
   }

@@ -4,4 +4,5 @@ class AssetsUtils {
   static String loginImage = "$rootPath/wedding-1.jpg";
   static String dpImage = "$rootPath/dpImage.jpg";
   static String rings = "$rootPath/rings.png";
+  static String chip = "$rootPath/chip.png";
 }
