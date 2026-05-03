@@ -35,7 +35,7 @@ class LandingScreen extends StatelessWidget {
     return CustomButton(
       text: AppStrings.btnContue,
       onPress: () {
-        Navigator.pushNamed(context, CommonRoutes.botomNavigation);
+        Navigator.pushNamed(context, CommonRoutes.logIn);
     },
     width: displayWidth(context)/1.3,
     );

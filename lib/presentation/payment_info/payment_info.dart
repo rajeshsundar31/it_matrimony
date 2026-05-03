@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:it_matrimony/core/constant/app_strings.dart';
 import 'package:it_matrimony/core/constant/colors.dart';
+import 'package:it_matrimony/core/utils/app_size.dart';
 import 'package:it_matrimony/presentation/payment_info/payment_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -114,34 +115,97 @@ class _PaymentInfoState extends State<PaymentInfo> with SingleTickerProviderStat
         return  Form(
         key: _expenseKey,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListTile(
-                title: Text(payment.selectedDate!.toLocal().toString().split(' ')[0]),
-                trailing: IconButton(onPressed: (){
-                  payment.selectDate(context);
-                }, icon: Icon(Icons.calendar_month_outlined)),
+              child: InputDecorator(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.zero,
+                ),
+                
+                child: ListTile(
+                  title: Text(payment.selectedDate!.toLocal().toString().split(' ')[0]),
+                  trailing: IconButton(onPressed: (){
+                    payment.selectDate(context);
+                  }, icon: Icon(Icons.calendar_month_outlined)),
+                ),
               )
             ),
-            DropdownButton(
-              hint: const Text("Select Your Account"),
-              items: [
-                ...payment.items.map((element) => DropdownMenuItem(
-                  value: element,
-                  child: Text(element))),
-                const DropdownMenuItem(
-                  value: "add_new",
-                  child: Text("+ Add new Value"))
-              ], 
-            onChanged: (value){
-              if (value == "add_new"){
-                _showAddDialog(context);
-              }else {
-                payment.selectedDropDownValue(value);
-              }
-      
-            })
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder()
+                ),
+                hint: const Text("Select Your Account"),
+                items: [
+                  ...payment.items.map((element) => DropdownMenuItem(
+                    value: element,
+                    child: Text(element))),
+                  const DropdownMenuItem(
+                    value: "add_new",
+                    child: Text("+ Add new Value"))
+                ], 
+              onChanged: (value){
+                if (value == "add_new"){
+                  _showAddDialog(context);
+                }else {
+                  payment.selectedDropDownValue(value);
+                }
+                    
+              }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter the Amount",
+                  labelText: "Amount",
+                  prefixText: "\$ ",
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 20
+                  )
+                ),
+                keyboardType: TextInputType.number,
+              ),
+            ),
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter the category",
+                  labelText: "Category"
+                ),
+                keyboardType: TextInputType.text,
+              ),
+            ),
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter the Note",
+                  labelText: "Note"
+                ),
+                keyboardType: TextInputType.text,
+              ),
+            ),
+            SizedBox(
+              width: displayWidth(context),
+              child: ElevatedButton(
+                onPressed: (){}, 
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(AppColor.primary)
+                ),
+                child: Text(AppStrings.btnContue, 
+                style: TextStyle(color: AppColor.white),)
+                ),
+            )
           ],
         )
         );

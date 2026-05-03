@@ -30,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text('Login Success!')));
-          Navigator.pushNamed(context, CommonRoutes.dashboard);
+          Navigator.pushNamed(context, CommonRoutes.botomNavigation);
         } else if (state.isFailure) {
           ScaffoldMessenger.of(
             context,

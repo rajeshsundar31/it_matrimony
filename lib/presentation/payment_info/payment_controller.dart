@@ -8,7 +8,7 @@ class PaymentController extends ChangeNotifier {
     await addNewItem();
   }
 
-  List <String> items = ["Current Account"];
+  List <String> items = [];
   String? selectedValue;
 
   DateTime? selectedDate = DateTime.now();
